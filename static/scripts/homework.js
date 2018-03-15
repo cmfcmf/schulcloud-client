@@ -58,6 +58,15 @@ $(document).ready(function() {
             submitButton.innerHTML = submitButtonText+' <i class="fa fa-close" aria-hidden="true"></i> (error)';
         });
     }
+    // Aufgabe speichern
+    $('form#homework-form').on("submit",function(e){
+        if(e) e.preventDefault();
+        ajaxForm($(this), function(element, content){
+            // TODO: get redirect url
+            window.location = "/homework";
+        });
+        return false;
+    });
     // Abgabe speichern
     $('form.submissionForm.ajaxForm').on("submit",function(e){
         if(e) e.preventDefault();

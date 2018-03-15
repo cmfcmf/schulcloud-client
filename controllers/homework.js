@@ -101,27 +101,28 @@ const getCreateHandler = (service) => {
             }
 
             if (req.body.availableDate >= req.body.dueDate) {
-                req.session.notification = {
-                    type: 'danger',
-                    message: "Das Beginndatum muss vor dem Abgabedatum liegen!"
+                let error = {
+                    error: {
+                        message: "Das Beginndatum muss vor dem Abgabedatum liegen!"
+                    }
                 };
-                res.redirect(req.header('Referer'));
-                return;
+                error.statusCode = 412;
+                return next(error);
             }
         }
         if (req.body.teamMembers && typeof req.body.teamMembers == "string") {
             req.body.teamMembers = [req.body.teamMembers];
         }
-        let referrer = (req.body.referrer) ?
-            (req.body.referrer) :
-            ((req.header('Referer').indexOf("homework/new") !== -1) ?
-                "/homework" :
-                req.header('Referer'));
-        delete req.body.referrer;
+        let referrer = (req.body.referrer)?
+                            (req.body.referrer) :
+                            (req.header('Referer') || "/homework");
         api(req).post('/' + service + '/', {
             // TODO: sanitize
             json: req.body
         }).then(data => {
+            if(service == "homework"){
+                referrer = `${(req.headers.origin || process.env.HOST)}/homework/${data._id}`;
+            }
             if (data.courseId && !data.private && service === "homework") {
                 api(req).get('/courses/' + data.courseId)
                     .then(course => {
@@ -587,7 +588,6 @@ router.get('/new', function (req, res, next) {
                 res.render('homework/edit', {
                     title: 'Aufgabe hinzufügen',
                     submitLabel: 'Hinzufügen',
-                    closeLabel: 'Abbrechen',
                     method: 'post',
                     action: '/homework/',
                     referrer: req.header('Referer'),
@@ -649,7 +649,6 @@ router.get('/:assignmentId/edit', function (req, res, next) {
                         res.render('homework/edit', {
                             title: 'Aufgabe bearbeiten',
                             submitLabel: 'Speichern',
-                            closeLabel: 'Abbrechen',
                             method: 'patch',
                             action: '/homework/' + req.params.assignmentId,
                             referrer: '/homework/' + req.params.assignmentId,
@@ -662,9 +661,8 @@ router.get('/:assignmentId/edit', function (req, res, next) {
                     });
                 } else {
                     res.render('homework/edit', {
-                        title: 'Aufgabe hinzufügen',
+                        title: 'Aufgabe bearbeiten',
                         submitLabel: 'Speichern',
-                        closeLabel: 'Abbrechen',
                         method: 'patch',
                         action: '/homework/' + req.params.assignmentId,
                         referrer: '/homework/' + req.params.assignmentId,
