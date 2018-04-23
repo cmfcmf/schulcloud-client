@@ -4,6 +4,10 @@ _An implementation of the Schul-Cloud client with NodeJS and Express._
 Dev: ![Travis Status](https://travis-ci.org/schul-cloud/schulcloud-client.svg?branch=master)<br>
 Production: ![Travis Status](https://travis-ci.org/schul-cloud/schulcloud-client.svg?branch=production)
 
+## Documentation
+
+[Confluence SCDOK](https://docs.schul-cloud.org/display/SCDOK)
+
 ## Requirements
 
 * node.js 6 or later (You can install it from https://nodejs.org/en/download/)
@@ -29,6 +33,10 @@ For connecting to the [SchulCloud Calendar-Service](https://github.com/schul-clo
 For connecting to the [SchulCloud Notification-Service](https://github.com/schul-cloud/node-notification-service) you have to set `export NOTIFICATION_SERVICE_ENABLED=true`.
 
 For activating Google Analytics tracking you have to set `export GOOGLE_ANALYTICS_TRACKING_ID={TRACKING_ID}`.
+
+## Setup in Windows Docker
+
+More under: [Confluence SCDOK: Setup](https://docs.schul-cloud.org/display/SCDOK/Setup)
 
 ## Theming
 
