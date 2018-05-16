@@ -131,10 +131,11 @@ $(document).ready(function () {
             submitLabel: 'Senden'
         });
 
-        $feedbackModal.find('.modal-form').on('submit', sendFeedback.bind(this, $feedbackModal));
         $feedbackModal.modal('show');
         $feedbackModal.find('#title-area').html(area);
     });
+    
+    $feedbackModal.find('.modal-form').on('submit', sendFeedback.bind(this, $feedbackModal));
 
     $('.submit-problem').on('click', function (e) {
         e.preventDefault();
@@ -146,9 +147,10 @@ $(document).ready(function () {
             submitLabel: 'Senden'
         });
 
-        $problemModal.find('.modal-form').on('submit', sendFeedback.bind(this, $problemModal));
         $problemModal.modal('show');
     });
+
+    $problemModal.find('.modal-form').on('submit', sendFeedback.bind(this, $problemModal));
 
     $modals.find('.close, .btn-close').on('click', function () {
         $modals.modal('hide');
