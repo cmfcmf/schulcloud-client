@@ -229,7 +229,7 @@ const getCreateHandler = (service) => {
 };
 
 /**
- * send out problem to the sc helpdesk
+ * send out problem to the sc jira helpdesk
  * @param service currently only used for helpdesk
  * @returns {Function}
  */
@@ -239,13 +239,17 @@ const getSendHelper = (service) => {
             .then(data => {
                 let user = res.locals.currentUser;
                 let email = user.email ? user.email : "";
-                let innerText = "Problem in Kategorie: " + data.category + "\n";
                 let content = {
                     "text": "User: " + user.displayName + "\n"
                         + "E-Mail: " + email + "\n"
                         + "Schule: " + res.locals.currentSchoolData.name + "\n"
-                        + innerText
-                        + "User schrieb folgendes: \nIst Zustand:\n" + data.currentState + "\n\nSoll-Zustand:\n" + data.targetState + "\n\nAnmerkungen vom Admin:\n" + data.notes
+                        + "Art: " + data.subject.split(" ")[0] + "\n"
+                        + "Kategorie: " + data.category + "\n"
+                        + "Erstellt am: " + (new Date(data.createdAt).toLocaleString() || "") + "\n\n"
+                        + "User schrieb folgendes: \n"
+                        + "Ist Zustand:\n" + data.currentState + "\n\n"
+                        + "Soll-Zustand:\n" + data.targetState + "\n\n"
+                        + "Anmerkungen vom Admin:\n" + (data.notes || "keine") +"\n\n"
                 };
                 req.body.email = "ticketsystem@schul-cloud.org";
                 req.body.subject = data.subject;
@@ -257,6 +261,11 @@ const getSendHelper = (service) => {
                             state: 'submitted',
                             order: 1
                         }
+                    }).then(_ => {
+                        req.session.notification = {
+                            type: 'success',
+                            message: 'Ihr Helpdesk-Ticket wurde an das Schul-Cloud Team übermittelt.'
+                        };
                     });
                     res.sendStatus(200);
                 }).catch(err => {
@@ -791,7 +800,7 @@ router.all('/helpdesk', permissionsHelper.permissionsChecker('HELPDESK_VIEW'), f
             'Kategorie',
             'Status',
             'Anmerkungen',
-            ''
+            'Aktionen'
         ];
 
         const body = data.data.map(item => {
