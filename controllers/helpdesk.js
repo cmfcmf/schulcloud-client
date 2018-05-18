@@ -19,9 +19,6 @@ router.post('/', function (req, res, next) {
             + "User schrieb folgendes: \n" + req.body.content.text
         };
         req.body.content = content;
-        req.body.headers = {
-            "X-Zammad-Customer-Email": email
-        };
         api(req).post('/mails', {json: req.body}).then(_ => {
             res.sendStatus(200);
         }).catch(err => {

@@ -641,3 +641,8 @@ footer {
         display: none;
     }
 }
+
+// min-width to not wrap helpdesk action buttons
+.route-administration .helpdesk-table table th:last-child {
+    min-width: 130px;
+}

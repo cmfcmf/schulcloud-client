@@ -111,7 +111,7 @@ $(document).ready(function () {
                 targetState: targetState
             },
             success: function(result) {
-                showAJAXSuccess("Feedback erfolgreich versendet!", modal)
+                showAJAXSuccess("Feedback erfolgreich versendet!", modal);
             },
             error: showAJAXError
         });

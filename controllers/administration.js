@@ -266,12 +266,13 @@ const getSendHelper = (service) => {
                             type: 'success',
                             message: 'Ihr Helpdesk-Ticket wurde an das Schul-Cloud Team übermittelt.'
                         };
+                        res.redirect(req.get('Referrer'));
+                    }).catch(err => {
+                        res.status((err.statusCode || 500)).send(err);
                     });
-                    res.sendStatus(200);
                 }).catch(err => {
                     res.status((err.statusCode || 500)).send(err);
                 });
-                res.redirect(req.get('Referrer'));
             });
     };
 };
