@@ -35,6 +35,7 @@ router.use('/help/', require('./help'));
 router.use('/impressum/', require('./imprint'));
 router.use('/team', require('./team'));
 router.use('/consent', require('./consent'));
+router.use('/material', require('./material'));
 
 router.use('/administration/', require('./administration'));
 

@@ -1,0 +1,23 @@
+{{#extend "lib/loggedin"}}
+    {{#content "page"}}
+        <section class="section-courses">
+            {{#if worksheets}}
+                {{> 'dashboard/components/card_section' section-id="worksheets" title="" content=courses link-text="Öffnen"}}
+            {{else}}
+                <div class="col-xs-12">
+                    <p class="text-muted text-center">
+                        <span>Keine Arbeitsblätter.</span>
+                    </p>
+                </div>
+            {{/if}}
+
+            <div class="col-xs-12">
+                <div class="row padding-top">
+                    <a href="/material/add" class="btn btn-add btn-primary">Arbeitsblatt erstellen</a>
+                </div>
+            </div>
+        </section>
+
+
+    {{/content}}
+{{/extend}}

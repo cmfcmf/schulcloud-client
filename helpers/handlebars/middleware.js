@@ -93,10 +93,14 @@ module.exports = (req, res, next) => {
             }
         ]
     }, {
-        name: 'Materialien',
+        name: 'Lernstore',
         icon: 'search',
         link: '/content/'
-    }];
+    }, {
+      name: 'Meine Materialien',
+      icon: 'paperclip',
+      link: '/material/'
+    }, ];
 
     // teacher views
     res.locals.sidebarItems.push({
