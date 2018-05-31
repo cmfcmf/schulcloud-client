@@ -8,13 +8,13 @@ const authHelper = require('../helpers/authentication');
 const listWorksheets = function(req, res, next) {
   api(req).get('/worksheet/', {
     qs: {}
-  }).then(worksheets => {
+  }).then(({data}) => {
     if (req.query.json) {
-      res.json(worksheets);
+      res.json(data);
     } else {
       res.render('material/overview', {
         title: 'Meine Arbeitsblätter',
-        worksheets
+        worksheets: data
       });
     }
   });
@@ -23,7 +23,7 @@ const listWorksheets = function(req, res, next) {
 const createWorksheet = (req, res, next) => {
   api(req).post('/worksheet/', {
     json: {
-      title: 'Neues Arbeitsblatt',
+      title: 'Neues Arbeitsblatt ' + Date.now(),
       content: []
     }
   }).then(result => {
