@@ -93,7 +93,7 @@ module.exports = (req, res, next) => {
             }
         ]
     }, {
-        name: 'Lernstore',
+        name: 'Materialsuche',
         icon: 'search',
         link: '/content/'
     }, {

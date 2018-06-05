@@ -1,1 +1,138 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{324:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t})(r(0)),o=r(36),u=c(r(1)),i=c(r(362)),l=c(r(333)),a=c(r(156));function c(e){return e&&e.__esModule?e:{default:e}}var f=function(e){e.id;var t=e.childs,r=e.options;return n.default.createElement("div",{className:l.default.layout_wrapper},n.default.createElement("div",{className:l.default.placeholder},n.default.createElement(a.default,{plugin:t[0].name},(function(o){return o?n.default.createElement(o,{id:t[0].id,options:r}):n.default.createElement(i.default,{id:e.id,slot:0})}))),n.default.createElement("div",{className:l.default.placeholder},n.default.createElement(a.default,{plugin:t[1].name},(function(o){return o?n.default.createElement(o,{id:t[1].id,options:r}):n.default.createElement(i.default,{id:e.id,slot:1})}))))};f.propTypes={options:u.default.shape({allowChildRearrangement:u.default.bool}),childs:u.default.array.isRequired,id:u.default.number.isRequired};var p=(0,o.connect)((function(e,t){var r=e.plugin,n=t.id,o=r.lookup[n].childs;return{options:r.lookup[n].options,childs:[0,1].map((function(e){return r.lookup[o[e]]||{}}))}}))(f);t.default=p},333:function(e,t,r){e.exports={layout_wrapper:"_17l7dzoEOoeMg1xG7lXvsD",placeholder:"_2kD-LUXXmX6bUTnCz6Kx_n"}},361:function(e,t,r){e.exports={slot:"FVn70E3M04yN5RCdQyZer"}},362:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t})(r(0)),o=r(36),u=f(r(1)),i=r(120),l=r(49),a=f(r(48)),c=f(r(361));function f(e){return e&&e.__esModule?e:{default:e}}function p(e){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function d(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function s(e,t){return!t||"object"!==p(t)&&"function"!=typeof t?(function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e})(e):t}var y=Object.values(a.default.TYPES).filter((function(e){return e!==a.default.TYPES.GRID})),b=(function(e){function t(){return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),s(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}var r,o,u;return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,n.Component),r=t,(o=[{key:"componentDidMount",value:function(){(0,this.props.connectDropTarget)(this.slot)}},{key:"render",value:function(){var e=this;return n.default.createElement("div",{className:c.default.slot,ref:function(t){return e.slot=t}})}}])&&d(r.prototype,o),u&&d(r,u),t})();Object.defineProperty(b,"propTypes",{configurable:!0,enumerable:!0,writable:!0,value:{slot:u.default.number.isRequired,id:u.default.number.isRequired,connectDropTarget:u.default.func.isRequired}});var v=(0,o.connect)((function(){return{}}),(function(e,t){var r=t.id;return{movePlugin:function(t){e((0,l.movePlugin)(r,t))}}}))((0,i.DropTarget)(y,{drop:function(e){e.movePlugin(e.slot)}},(function(e,t){return{connectDropTarget:e.dropTarget(),isOver:t.isOver()}}))(b));t.default=v}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10],{
+
+/***/ "./src/plugins/Dummy/DummyPlugin.jsx":
+/*!*******************************************!*\
+  !*** ./src/plugins/Dummy/DummyPlugin.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash.isequal */ "./node_modules/lodash.isequal/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Dummy Plugin for testing
+ * Does not have any functionality apart from displaying whether it is in edit
+ * mode or not.
+ * **DEVELOPMENT ONLY**
+ */
+var DummyPlugin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DummyPlugin, _Component);
+
+  function DummyPlugin(props) {
+    var _this;
+
+    _classCallCheck(this, DummyPlugin);
+
+    _this = _possibleConstructorReturn(this, (DummyPlugin.__proto__ || Object.getPrototypeOf(DummyPlugin)).call(this, props));
+    _this.state = {
+      lx: "XXX",
+      ly: "YYY"
+    };
+    return _this;
+  }
+
+  _createClass(DummyPlugin, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(_ref, nextState) {
+      var isEditable = _ref.isEditable;
+      return isEditable && !(0, _lodash.default)(this.state, nextState);
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState(_objectSpread({}, this.props.content));
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _this2 = this;
+
+      this.setState(_defineProperty({}, e.target.name, e.target.value), function () {
+        _this2.props.saveContent(_this2.state);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var isEditable = this.props.isEditable;
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", null, "unstyled"), _react.default.createElement("h2", null, "Static dummy text plugin"), _react.default.createElement("div", null, "Editable: ".concat(isEditable)), _react.default.createElement("input", {
+        autoFocus: true,
+        type: "text",
+        name: "lx",
+        value: this.state.lx,
+        onChange: function onChange(e) {
+          return _this3.handleChange(e);
+        }
+      }), _react.default.createElement("input", {
+        type: "text",
+        name: "ly",
+        value: this.state.ly,
+        onChange: function onChange(e) {
+          return _this3.handleChange(e);
+        }
+      }));
+    }
+  }]);
+
+  return DummyPlugin;
+}(_react.Component);
+
+Object.defineProperty(DummyPlugin, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    isEditable: _propTypes.default.bool.isRequired,
+    content: _propTypes.default.object,
+    saveContent: _propTypes.default.func.isRequired //isPrint: PropTypes.bool,
+    //isViewMode: PropTypes.bool,
+
+  }
+});
+var _default = DummyPlugin;
+exports.default = _default;
+
+/***/ })
+
+}]);
+//# sourceMappingURL=10.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"22.css","sources":["webpack:///./src/plugins/Tool/styles.scss"],"sourcesContent":["iframe {\n  width: 100%;\n  height: 600px; }\n"],"mappings":"AAAA;AACA;AACA;;","sourceRoot":""}

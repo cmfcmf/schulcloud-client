@@ -15,7 +15,11 @@
     {{#content "page"}}
         <section class="section-course">
 
-            <div id="root" data-api="{{worksheet_api}}" data-worksheet-id="{{worksheet_id}}"></div>
+            <div id="root"
+                 data-api="{{worksheet_api}}"
+                 data-worksheet-id="{{worksheet_id}}"
+                 data-lti-base-url="{{lti_base_url}}">
+            </div>
 
             <div id="modal"></div>
 

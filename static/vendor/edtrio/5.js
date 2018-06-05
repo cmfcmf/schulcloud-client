@@ -1,1 +1,192 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{200:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var r=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var r=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,n):{};r.get||r.set?Object.defineProperty(t,n,r):t[n]=e[n]}return t.default=e,t})(n(0)),o=i(n(1)),u=i(n(439));function i(e){return e&&e.__esModule?e:{default:e}}function a(e){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function l(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},r=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(r=r.concat(Object.getOwnPropertySymbols(n).filter((function(e){return Object.getOwnPropertyDescriptor(n,e).enumerable})))),r.forEach((function(t){c(e,t,n[t])}))}return e}function c(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function f(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function p(e,t){return!t||"object"!==a(t)&&"function"!=typeof t?(function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e})(e):t}var s=(function(e){function t(e){var n;return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),(n=p(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))).state={id:"",geogebra:null},n.applet=r.default.createRef(),n}var o,i,a;return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,r.Component),o=t,(i=[{key:"renderApplet",value:function(e){var t=this;this.setState((function(n){return new t.state.geogebra({material_id:e,width:t.applet.current.offsetWidth,height:500},!0).inject("ggb-element"),l({},n,{id:e})}))}},{key:"componentDidMount",value:function(){var e=this;n.e(19).then((function(){var e=n(437);return"object"==typeof e&&e&&e.__esModule?e:Object.assign({},"object"==typeof e&&e,{default:e})})).then((function(t){e.setState((function(e){return l({},e,{geogebra:t.default})}))}))}},{key:"render",value:function(){var e=this;this.state.id;return r.default.createElement("span",null,r.default.createElement("div",{id:"ggb-element",ref:this.applet}),r.default.createElement("div",null,r.default.createElement("input",{className:u.default.id_input,onInput:function(t){return e.renderApplet(t.target.value)},type:"text",placeholder:"GeoGebra Id"})))}}])&&f(o.prototype,i),a&&f(o,a),t})();t.default=s,Object.defineProperty(s,"propTypes",{configurable:!0,enumerable:!0,writable:!0,value:{isEditable:o.default.bool.isRequired,content:o.default.object,saveContent:o.default.func.isRequired}})},439:function(e,t,n){e.exports={id_input:"_2cuNNliiMFcn2xrEoCyGHc"}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
+
+/***/ "./src/plugins/Text/TextPlugin.jsx":
+/*!*****************************************!*\
+  !*** ./src/plugins/Text/TextPlugin.jsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactQuill = _interopRequireDefault(__webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js"));
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/plugins/Text/styles.scss"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var TextPlugin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(TextPlugin, _Component);
+
+  function TextPlugin(props) {
+    var _this;
+
+    _classCallCheck(this, TextPlugin);
+
+    _this = _possibleConstructorReturn(this, (TextPlugin.__proto__ || Object.getPrototypeOf(TextPlugin)).call(this, props));
+    Object.defineProperty(_assertThisInitialized(_this), "focusQuill", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        if (!_this.reactQuillRef || typeof _this.reactQuillRef.getEditor !== 'function') return;
+
+        _this.reactQuillRef.getEditor().focus();
+      }
+    });
+    _this.reactQuillRef = null;
+    _this.state = {
+      text: "",
+      visible: false
+    };
+    _this.modules = {
+      toolbar: [[{
+        'header': [1, 2, 3, false]
+      }], ['bold', 'italic', 'underline', 'strike'], [{
+        'align': []
+      }], ['blockquote', 'code-block'], [{
+        'list': 'ordered'
+      }, {
+        'list': 'bullet'
+      }], [{
+        'script': 'sub'
+      }, {
+        'script': 'super'
+      }], [{
+        'color': []
+      }, {
+        'background': []
+      }], ['clean']]
+    };
+    return _this;
+  }
+
+  _createClass(TextPlugin, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState(_objectSpread({}, this.props.content));
+      this.focusQuill();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this2 = this;
+
+      window.requestAnimationFrame(function () {
+        return _this2.focusQuill();
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(value) {
+      var _this3 = this;
+
+      this.setState({
+        text: value
+      }, function () {
+        return _this3.props.saveContent({
+          text: _this3.state.text
+        });
+      });
+    } //TODO
+
+  }, {
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return true;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var isEditable = this.props.isEditable;
+      var visible = this.state.visible;
+      return _react.default.createElement("span", null, _react.default.createElement("link", {
+        rel: "stylesheet",
+        href: "//cdn.quilljs.com/1.2.6/quill.snow.css",
+        type: "text/css",
+        onLoad: function onLoad() {
+          return _this4.setState({
+            visible: true
+          });
+        }
+      }), isEditable && visible && _react.default.createElement(_reactQuill.default, {
+        id: _styles.default.quill_editor,
+        ref: function ref(el) {
+          _this4.reactQuillRef = el;
+        },
+        modules: this.modules,
+        value: this.state.text,
+        placeholder: "Start typing...",
+        onChange: function onChange(e) {
+          return _this4.handleChange(e);
+        }
+      }), !isEditable && _react.default.createElement("div", {
+        className: "ql-editor ".concat(_styles.default.ql_editor),
+        dangerouslySetInnerHTML: {
+          __html: this.state.text || "<p>Empty text plugin</p>"
+        }
+      }));
+    }
+  }]);
+
+  return TextPlugin;
+}(_react.Component);
+
+TextPlugin.propTypes = {
+  isEditable: _propTypes.default.bool.isRequired,
+  content: _propTypes.default.object,
+  saveContent: _propTypes.default.func.isRequired
+};
+var _default = TextPlugin;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./src/plugins/Text/styles.scss":
+/*!**************************************!*\
+  !*** ./src/plugins/Text/styles.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"ql_editor":"_2iZ-_BpSmV-I7eH7Rs_5IX"};
+
+/***/ })
+
+}]);
+//# sourceMappingURL=5.js.map

@@ -1,1 +1,192 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{325:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var o=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var o=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,n):{};o.get||o.set?Object.defineProperty(t,n,o):t[n]=e[n]}return t.default=e,t})(n(0)),r=s(n(1)),i=(s(n(147)),s(n(342))),a=s(n(357)),u=n(340),l=n(339),c=n(42),f=s(n(423));function s(e){return e&&e.__esModule?e:{default:e}}function p(e){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function d(e,t){return (function(e){if(Array.isArray(e))return e})(e)||(function(e,t){var n=[],o=!0,r=!1,i=void 0;try{for(var a,u=e[Symbol.iterator]();!(o=(a=u.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{o||null==u.return||u.return()}finally{if(r)throw i}}return n})(e,t)||(function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")})()}function b(e){return (function(e){if(Array.isArray(e)){for(var t=0,n=new Array(e.length);t<e.length;t++)n[t]=e[t];return n}})(e)||(function(e){if(Symbol.iterator in Object(e)||"[object Arguments]"===Object.prototype.toString.call(e))return Array.from(e)})(e)||(function(){throw new TypeError("Invalid attempt to spread non-iterable instance")})()}function h(e){for(var t=1;t<arguments.length;t++){var n=null!=arguments[t]?arguments[t]:{},o=Object.keys(n);"function"==typeof Object.getOwnPropertySymbols&&(o=o.concat(Object.getOwnPropertySymbols(n).filter((function(e){return Object.getOwnPropertyDescriptor(n,e).enumerable})))),o.forEach((function(t){y(e,t,n[t])}))}return e}function y(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function v(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}function m(e,t){return!t||"object"!==p(t)&&"function"!=typeof t?(function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e})(e):t}var O=(function(e){function t(e){var n;return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),(n=m(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))).state={active:0,question:"",choices:{1:{label:""}},solution:[]},n}var n,r,s;return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,o.Component),n=t,(r=[{key:"shouldComponentUpdate",value:function(){return!0}},{key:"componentDidMount",value:function(){this.setState(h({},this.props.content))}},{key:"handleQuestionChange",value:function(e){this.setState({question:e})}},{key:"toggleChoice",value:function(e,t){var n=this,o=this.state.solution.findIndex((function(e){return e===t})),r=b(this.state.solution);o>-1?r=this.state.solution.filter((function(e){return e!==t})):r.push(t),this.setState({solution:r},(function(){return n.props.saveContent(n.state)}))}},{key:"setChoice",value:function(e){var t=this;this.setState({choices:h({},this.state.choices,y({},this.state.active,{label:e}))},(function(){return t.props.saveContent(t.state)}))}},{key:"activateEntry",value:function(e){this.setState({active:e})}},{key:"deleteChoice",value:function(e){var t=this,n=this.state.choices;delete n[e],this.setState({choices:h({},n)},(function(){return t.props.saveContent(t.state)}))}},{key:"nextChoice",value:function(e){if(!e.keyCode||13===e.keyCode){var t=this.state.active+1;this.setState({active:t,choices:h({},this.state.choices,y({},t,{label:""}))})}}},{key:"render",value:function(){var e=this,t=this.state,n=t.choices,r=t.active,s=this.props.isEditable;return o.default.createElement("span",null,o.default.createElement(u.TextField,{fullwidth:!0,autoFocus:!0,placeholder:"Untitled Question",value:this.state.question,onKeyDown:function(t){return e.nextChoice(t)},tabIndex:0,onChange:function(t){return e.handleQuestionChange(t.target.value)},className:i.default.question}),Object.entries(n).map((function(t){var n=d(t,2),i=n[0],a=n[1].label;return o.default.createElement(f.default,{key:i,id:+i,labelIsEditable:r===+i&&s,toggleChoice:e.toggleChoice.bind(e),nextChoice:e.nextChoice.bind(e),setChoice:e.setChoice.bind(e),deleteChoice:e.deleteChoice.bind(e),activateEntry:e.activateEntry.bind(e),label:a,isEditable:s})})),s?o.default.createElement("span",null,o.default.createElement("div",{className:a.default.checkbox_wrapper},o.default.createElement(l.Checkbox,{disabled:!0}),o.default.createElement("label",{onClick:function(t){return e.nextChoice(t)}},o.default.createElement("div",{className:i.default.addOption},"Add Option"))),o.default.createElement(c.Infobox,null,"Don't forget to check the boxes next to the correct answer")):null)}}])&&v(n.prototype,r),s&&v(n,s),t})();Object.defineProperty(O,"propTypes",{configurable:!0,enumerable:!0,writable:!0,value:{isEditable:r.default.bool.isRequired,content:r.default.object,saveContent:r.default.func.isRequired}});var w=O;t.default=w},342:function(e,t,n){e.exports={question:"md7Lq9d9PQ2JrWhhOTLpD",addOption:"IMyq4CFRkHDXALEk01H81"}},357:function(e,t,n){e.exports={checkbox_wrapper:"_3PkQ_teIBDzFRUrOLx3YSi",removeButton:"_2WSgnX_oRvp4AVBgRtf5Mk",checkbox_wrapperli:"_1kmADqGhqSD2CaF3BNWzE5",checkbox_label:"H5qGWe68MaRjeUUdPNQ_v"}},422:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var o=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var o=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,n):{};o.get||o.set?Object.defineProperty(t,n,o):t[n]=e[n]}return t.default=e,t})(n(0)),r=c(n(1)),i=c(n(357)),a=n(339),u=n(340),l=n(16);function c(e){return e&&e.__esModule?e:{default:e}}function f(e){return(f="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function s(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}function p(e,t){return!t||"object"!==f(t)&&"function"!=typeof t?(function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e})(e):t}var d=(function(e){function t(){return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),p(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}var n,r,c;return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,o.Component),n=t,(r=[{key:"render",value:function(){var e=this.props,t=e.labelIsEditable,n=e.toggleChoice,r=e.nextChoice,c=e.setChoice,f=e.label,s=e.id,p=e.deleteChoice,d=e.isEditable,b=e.activateEntry;return o.default.createElement("div",{className:t?i.default.checkbox_wrapperli:i.default.checkbox_wrapper},o.default.createElement(a.Checkbox,{onClick:function(e){return n(e,+s)},tabIndex:-1}),t?o.default.createElement(u.TextField,{rootProps:{style:{width:"100%"}},onKeyDown:function(e){return r(e)},onInput:function(e){return c(e.target.value)},value:f,label:"Option ".concat(s),tabIndex:0,autoFocus:!0}):o.default.createElement("label",{onClick:function(){return b(+s)},onFocus:function(){return b(+s)},tabIndex:0,className:i.default.checkbox_label},f||"Option ".concat(s)),d?o.default.createElement(l.Icon,{onClick:function(){return p(+s)},className:i.default.removeButton},"clear"):null)}}])&&s(n.prototype,r),c&&s(n,c),t})();d.propTypes={labelIsEditable:r.default.bool,isEditable:r.default.bool,activateEntry:r.default.func,toggleChoice:r.default.func,nextChoice:r.default.func,setChoice:r.default.func,deleteChoice:r.default.func,label:r.default.string,id:r.default.number};var b=d;t.default=b},423:function(e,t,n){"use strict";var o;Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var r=((o=n(422))&&o.__esModule?o:{default:o}).default;t.default=r}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
+
+/***/ "./src/plugins/Text/TextPlugin.jsx":
+/*!*****************************************!*\
+  !*** ./src/plugins/Text/TextPlugin.jsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactQuill = _interopRequireDefault(__webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js"));
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/plugins/Text/styles.scss"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var TextPlugin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(TextPlugin, _Component);
+
+  function TextPlugin(props) {
+    var _this;
+
+    _classCallCheck(this, TextPlugin);
+
+    _this = _possibleConstructorReturn(this, (TextPlugin.__proto__ || Object.getPrototypeOf(TextPlugin)).call(this, props));
+    Object.defineProperty(_assertThisInitialized(_this), "focusQuill", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value() {
+        if (!_this.reactQuillRef || typeof _this.reactQuillRef.getEditor !== 'function') return;
+
+        _this.reactQuillRef.getEditor().focus();
+      }
+    });
+    _this.reactQuillRef = null;
+    _this.state = {
+      text: "",
+      visible: false
+    };
+    _this.modules = {
+      toolbar: [[{
+        'header': [1, 2, 3, false]
+      }], ['bold', 'italic', 'underline', 'strike'], [{
+        'align': []
+      }], ['blockquote', 'code-block'], [{
+        'list': 'ordered'
+      }, {
+        'list': 'bullet'
+      }], [{
+        'script': 'sub'
+      }, {
+        'script': 'super'
+      }], [{
+        'color': []
+      }, {
+        'background': []
+      }], ['clean']]
+    };
+    return _this;
+  }
+
+  _createClass(TextPlugin, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState(_objectSpread({}, this.props.content));
+      this.focusQuill();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this2 = this;
+
+      window.requestAnimationFrame(function () {
+        return _this2.focusQuill();
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(value) {
+      var _this3 = this;
+
+      this.setState({
+        text: value
+      }, function () {
+        return _this3.props.saveContent({
+          text: _this3.state.text
+        });
+      });
+    } //TODO
+
+  }, {
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return true;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      var isEditable = this.props.isEditable;
+      var visible = this.state.visible;
+      return _react.default.createElement("span", null, _react.default.createElement("link", {
+        rel: "stylesheet",
+        href: "//cdn.quilljs.com/1.2.6/quill.snow.css",
+        type: "text/css",
+        onLoad: function onLoad() {
+          return _this4.setState({
+            visible: true
+          });
+        }
+      }), isEditable && visible && _react.default.createElement(_reactQuill.default, {
+        id: _styles.default.quill_editor,
+        ref: function ref(el) {
+          _this4.reactQuillRef = el;
+        },
+        modules: this.modules,
+        value: this.state.text,
+        placeholder: "Start typing...",
+        onChange: function onChange(e) {
+          return _this4.handleChange(e);
+        }
+      }), !isEditable && _react.default.createElement("div", {
+        className: "ql-editor ".concat(_styles.default.ql_editor),
+        dangerouslySetInnerHTML: {
+          __html: this.state.text || "<p>Empty text plugin</p>"
+        }
+      }));
+    }
+  }]);
+
+  return TextPlugin;
+}(_react.Component);
+
+TextPlugin.propTypes = {
+  isEditable: _propTypes.default.bool.isRequired,
+  content: _propTypes.default.object,
+  saveContent: _propTypes.default.func.isRequired
+};
+var _default = TextPlugin;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./src/plugins/Text/styles.scss":
+/*!**************************************!*\
+  !*** ./src/plugins/Text/styles.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"ql_editor":"_2iZ-_BpSmV-I7eH7Rs_5IX"};
+
+/***/ })
+
+}]);
+//# sourceMappingURL=12.js.map

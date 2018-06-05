@@ -1,1 +1,148 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{100:function(t,e,n){"use strict";n.r(e),n.d(e,"createStore",(function(){return a})),n.d(e,"combineReducers",(function(){return p})),n.d(e,"bindActionCreators",(function(){return d})),n.d(e,"applyMiddleware",(function(){return h})),n.d(e,"compose",(function(){return l})),n.d(e,"__DO_NOT_USE__ActionTypes",(function(){return o}));var r=n(35),o={INIT:"@@redux/INIT"+Math.random().toString(36).substring(7).split("").join("."),REPLACE:"@@redux/REPLACE"+Math.random().toString(36).substring(7).split("").join(".")},i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},s=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t};function u(t){if("object"!==(void 0===t?"undefined":i(t))||null===t)return!1;for(var e=t;null!==Object.getPrototypeOf(e);)e=Object.getPrototypeOf(e);return Object.getPrototypeOf(t)===e}function a(t,e,n){var s;if("function"==typeof e&&void 0===n&&(n=e,e=void 0),void 0!==n){if("function"!=typeof n)throw new Error("Expected the enhancer to be a function.");return n(a)(t,e)}if("function"!=typeof t)throw new Error("Expected the reducer to be a function.");var c=t,p=e,f=[],d=f,l=!1;function h(){d===f&&(d=f.slice())}function y(){if(l)throw new Error("You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.");return p}function b(t){if("function"!=typeof t)throw new Error("Expected the listener to be a function.");if(l)throw new Error("You may not call store.subscribe() while the reducer is executing. If you would like to be notified after the store has been updated, subscribe from a component and invoke store.getState() in the callback to access the latest state. See https://redux.js.org/api-reference/store#subscribe(listener) for more details.");var e=!0;return h(),d.push(t),function(){if(e){if(l)throw new Error("You may not unsubscribe from a store listener while the reducer is executing. See https://redux.js.org/api-reference/store#subscribe(listener) for more details.");e=!1,h();var n=d.indexOf(t);d.splice(n,1)}}}function v(t){if(!u(t))throw new Error("Actions must be plain objects. Use custom middleware for async actions.");if(void 0===t.type)throw new Error('Actions may not have an undefined "type" property. Have you misspelled a constant?');if(l)throw new Error("Reducers may not dispatch actions.");try{l=!0,p=c(p,t)}finally{l=!1}for(var e=f=d,n=0;n<e.length;n++){(0,e[n])()}return t}return v({type:o.INIT}),(s={dispatch:v,subscribe:b,getState:y,replaceReducer:function(t){if("function"!=typeof t)throw new Error("Expected the nextReducer to be a function.");c=t,v({type:o.REPLACE})}})[r.default]=function(){var t,e=b;return(t={subscribe:function(t){if("object"!==(void 0===t?"undefined":i(t))||null===t)throw new TypeError("Expected the observer to be an object.");function n(){t.next&&t.next(y())}return n(),{unsubscribe:e(n)}}})[r.default]=function(){return this},t},s}function c(t,e){var n=e&&e.type;return"Given "+(n&&'action "'+String(n)+'"'||"an action")+', reducer "'+t+'" returned undefined. To ignore an action, you must explicitly return the previous state. If you want this reducer to hold no value, you can return null instead of undefined.'}function p(t){for(var e=Object.keys(t),n={},r=0;r<e.length;r++){var i=e[r];0,"function"==typeof t[i]&&(n[i]=t[i])}var s=Object.keys(n);var u=void 0;try{!(function(t){Object.keys(t).forEach((function(e){var n=t[e];if(void 0===n(void 0,{type:o.INIT}))throw new Error('Reducer "'+e+"\" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state. The initial state may not be undefined. If you don't want to set a value for this reducer, you can use null instead of undefined.");if(void 0===n(void 0,{type:"@@redux/PROBE_UNKNOWN_ACTION_"+Math.random().toString(36).substring(7).split("").join(".")}))throw new Error('Reducer "'+e+"\" returned undefined when probed with a random type. Don't try to handle "+o.INIT+' or other actions in "redux/*" namespace. They are considered private. Instead, you must return the current state for any unknown actions, unless it is undefined, in which case you must return the initial state, regardless of the action type. The initial state may not be undefined, but can be null.')}))})(n)}catch(t){u=t}return function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=arguments[1];if(u)throw u;for(var r=!1,o={},i=0;i<s.length;i++){var a=s[i],p=n[a],f=t[a],d=p(f,e);if(void 0===d){var l=c(a,e);throw new Error(l)}o[a]=d,r=r||d!==f}return r?o:t}}function f(t,e){return function(){return e(t.apply(this,arguments))}}function d(t,e){if("function"==typeof t)return f(t,e);if("object"!==(void 0===t?"undefined":i(t))||null===t)throw new Error("bindActionCreators expected an object or a function, instead received "+(null===t?"null":void 0===t?"undefined":i(t))+'. Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');for(var n=Object.keys(t),r={},o=0;o<n.length;o++){var s=n[o],u=t[s];"function"==typeof u&&(r[s]=f(u,e))}return r}function l(){for(var t=arguments.length,e=Array(t),n=0;n<t;n++)e[n]=arguments[n];return 0===e.length?function(t){return t}:1===e.length?e[0]:e.reduce((function(t,e){return function(){return t(e.apply(void 0,arguments))}}))}function h(){for(var t=arguments.length,e=Array(t),n=0;n<t;n++)e[n]=arguments[n];return function(t){return function(){for(var n=arguments.length,r=Array(n),o=0;o<n;o++)r[o]=arguments[o];var i=t.apply(void 0,r),u=function(){throw new Error("Dispatching while constructing your middleware is not allowed. Other middleware would not be applied to this dispatch.")},a={getState:i.getState,dispatch:function(){return u.apply(void 0,arguments)}},c=e.map((function(t){return t(a)}));return u=l.apply(void 0,c)(i.dispatch),s({},i,{dispatch:u})}}}},11:function(t,e,n){"use strict";t.exports=function(t,e,n,r,o,i,s,u){if(!t){var a;if(void 0===e)a=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var c=[n,r,o,i,s,u],p=0;(a=new Error(e.replace(/%s/g,(function(){return c[p++]})))).name="Invariant Violation"}throw a.framesToPop=1,a}}},121:function(t,e,n){"use strict";function r(t){var e,n=t.Symbol;return"function"==typeof n?n.observable?e=n.observable:(e=n("observable"),n.observable=e):e="@@observable",e}n.d(e,"a",(function(){return r}))},196:function(t,e){t.exports=function(t){if(!t.webpackPolyfill){var e=Object.create(t);e.children||(e.children=[]),Object.defineProperty(e,"loaded",{enumerable:!0,get:function(){return e.l}}),Object.defineProperty(e,"id",{enumerable:!0,get:function(){return e.i}}),Object.defineProperty(e,"exports",{enumerable:!0}),e.webpackPolyfill=1}return e}},20:function(t,e,n){t.exports=(function(){"use strict";var t={childContextTypes:!0,contextTypes:!0,defaultProps:!0,displayName:!0,getDefaultProps:!0,getDerivedStateFromProps:!0,mixins:!0,propTypes:!0,type:!0},e={name:!0,length:!0,prototype:!0,caller:!0,callee:!0,arguments:!0,arity:!0},n=Object.defineProperty,r=Object.getOwnPropertyNames,o=Object.getOwnPropertySymbols,i=Object.getOwnPropertyDescriptor,s=Object.getPrototypeOf,u=s&&s(Object);return function a(c,p,f){if("string"!=typeof p){if(u){var d=s(p);d&&d!==u&&a(c,d,f)}var l=r(p);o&&(l=l.concat(o(p)));for(var h=0;h<l.length;++h){var y=l[h];if(!(t[y]||e[y]||f&&f[y])){var b=i(p,y);try{n(c,y,b)}catch(t){}}}return c}return c}})()},319:function(t,e,n){"use strict";(function(t){var n="object"==typeof t&&t&&t.Object===Object&&t;e.a=n}).call(this,n(7))},35:function(t,e,n){"use strict";n.r(e),function(t,r){var o,i=n(121);o="undefined"!=typeof self?self:"undefined"!=typeof window?window:void 0!==t?t:r;var s=Object(i.a)(o);e.default=s}.call(this,n(7),n(196)(t))},36:function(t,e,n){"use strict";n.r(e);var r=n(0),o=n(1),i=n.n(o),s=i.a.shape({trySubscribe:i.a.func.isRequired,tryUnsubscribe:i.a.func.isRequired,notifyNestedSubs:i.a.func.isRequired,isSubscribed:i.a.func.isRequired}),u=i.a.shape({subscribe:i.a.func.isRequired,dispatch:i.a.func.isRequired,getState:i.a.func.isRequired});function a(){var t,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"store",n=arguments[1]||e+"Subscription",o=(function(t){function o(n,r){!(function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")})(this,o);var i=(function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e})(this,t.call(this,n,r));return i[e]=n.store,i}return (function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)})(o,t),o.prototype.getChildContext=function(){var t;return(t={})[e]=this[e],t[n]=null,t},o.prototype.render=function(){return r.Children.only(this.props.children)},o})(r.Component);return o.propTypes={store:u.isRequired,children:i.a.element.isRequired},o.childContextTypes=((t={})[e]=u.isRequired,t[n]=s,t),o}var c=a(),p=n(20),f=n.n(p),d=n(11),l=n.n(d);var h=null,y={notify:function(){}};var b=(function(){function t(e,n,r){!(function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")})(this,t),this.store=e,this.parentSub=n,this.onStateChange=r,this.unsubscribe=null,this.listeners=y}return t.prototype.addNestedSub=function(t){return this.trySubscribe(),this.listeners.subscribe(t)},t.prototype.notifyNestedSubs=function(){this.listeners.notify()},t.prototype.isSubscribed=function(){return Boolean(this.unsubscribe)},t.prototype.trySubscribe=function(){var t,e;this.unsubscribe||(this.unsubscribe=this.parentSub?this.parentSub.addNestedSub(this.onStateChange):this.store.subscribe(this.onStateChange),this.listeners=(t=[],e=[],{clear:function(){e=h,t=h},notify:function(){for(var n=t=e,r=0;r<n.length;r++)n[r]()},get:function(){return e},subscribe:function(n){var r=!0;return e===t&&(e=t.slice()),e.push(n),function(){r&&t!==h&&(r=!1,e===t&&(e=t.slice()),e.splice(e.indexOf(n),1))}}}))},t.prototype.tryUnsubscribe=function(){this.unsubscribe&&(this.unsubscribe(),this.unsubscribe=null,this.listeners.clear(),this.listeners=y)},t})(),v=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t};var m=0,w={};function O(){}function g(t){var e,n,o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=o.getDisplayName,a=void 0===i?function(t){return"ConnectAdvanced("+t+")"}:i,c=o.methodName,p=void 0===c?"connectAdvanced":c,d=o.renderCountProp,h=void 0===d?void 0:d,y=o.shouldHandleStateChanges,g=void 0===y||y,P=o.storeKey,S=void 0===P?"store":P,j=o.withRef,E=void 0!==j&&j,C=(function(t,e){var n={};for(var r in t)e.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(t,r)&&(n[r]=t[r]);return n})(o,["getDisplayName","methodName","renderCountProp","shouldHandleStateChanges","storeKey","withRef"]),x=S+"Subscription",T=m++,N=((e={})[S]=u,e[x]=s,e),R=((n={})[x]=s,n);return function(e){l()("function"==typeof e,"You must pass a component to the function returned by "+p+". Instead received "+JSON.stringify(e));var n=e.displayName||e.name||"Component",o=a(n),i=v({},C,{getDisplayName:a,methodName:p,renderCountProp:h,shouldHandleStateChanges:g,storeKey:S,withRef:E,displayName:o,wrappedComponentName:n,WrappedComponent:e}),s=(function(n){function s(t,e){!(function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")})(this,s);var r=(function(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e})(this,n.call(this,t,e));return r.version=T,r.state={},r.renderCount=0,r.store=t[S]||e[S],r.propsMode=Boolean(t[S]),r.setWrappedInstance=r.setWrappedInstance.bind(r),l()(r.store,'Could not find "'+S+'" in either the context or props of "'+o+'". Either wrap the root component in a <Provider>, or explicitly pass "'+S+'" as a prop to "'+o+'".'),r.initSelector(),r.initSubscription(),r}return (function(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)})(s,n),s.prototype.getChildContext=function(){var t,e=this.propsMode?null:this.subscription;return(t={})[x]=e||this.context[x],t},s.prototype.componentDidMount=function(){g&&(this.subscription.trySubscribe(),this.selector.run(this.props),this.selector.shouldComponentUpdate&&this.forceUpdate())},s.prototype.componentWillReceiveProps=function(t){this.selector.run(t)},s.prototype.shouldComponentUpdate=function(){return this.selector.shouldComponentUpdate},s.prototype.componentWillUnmount=function(){this.subscription&&this.subscription.tryUnsubscribe(),this.subscription=null,this.notifyNestedSubs=O,this.store=null,this.selector.run=O,this.selector.shouldComponentUpdate=!1},s.prototype.getWrappedInstance=function(){return l()(E,"To access the wrapped instance, you need to specify { withRef: true } in the options argument of the "+p+"() call."),this.wrappedInstance},s.prototype.setWrappedInstance=function(t){this.wrappedInstance=t},s.prototype.initSelector=function(){var e=t(this.store.dispatch,i);this.selector=(function(t,e){var n={run:function(r){try{var o=t(e.getState(),r);(o!==n.props||n.error)&&(n.shouldComponentUpdate=!0,n.props=o,n.error=null)}catch(t){n.shouldComponentUpdate=!0,n.error=t}}};return n})(e,this.store),this.selector.run(this.props)},s.prototype.initSubscription=function(){if(g){var t=(this.propsMode?this.props:this.context)[x];this.subscription=new b(this.store,t,this.onStateChange.bind(this)),this.notifyNestedSubs=this.subscription.notifyNestedSubs.bind(this.subscription)}},s.prototype.onStateChange=function(){this.selector.run(this.props),this.selector.shouldComponentUpdate?(this.componentDidUpdate=this.notifyNestedSubsOnComponentDidUpdate,this.setState(w)):this.notifyNestedSubs()},s.prototype.notifyNestedSubsOnComponentDidUpdate=function(){this.componentDidUpdate=void 0,this.notifyNestedSubs()},s.prototype.isSubscribed=function(){return Boolean(this.subscription)&&this.subscription.isSubscribed()},s.prototype.addExtraProps=function(t){if(!(E||h||this.propsMode&&this.subscription))return t;var e=v({},t);return E&&(e.ref=this.setWrappedInstance),h&&(e[h]=this.renderCount++),this.propsMode&&this.subscription&&(e[x]=this.subscription),e},s.prototype.render=function(){var t=this.selector;if(t.shouldComponentUpdate=!1,t.error)throw t.error;return Object(r.createElement)(e,this.addExtraProps(t.props))},s})(r.Component);return s.WrappedComponent=e,s.displayName=o,s.childContextTypes=R,s.contextTypes=N,s.propTypes=N,f()(s,e)}}var P=Object.prototype.hasOwnProperty;function S(t,e){return t===e?0!==t||0!==e||1/t==1/e:t!=t&&e!=e}function j(t,e){if(S(t,e))return!0;if("object"!=typeof t||null===t||"object"!=typeof e||null===e)return!1;var n=Object.keys(t),r=Object.keys(e);if(n.length!==r.length)return!1;for(var o=0;o<n.length;o++)if(!P.call(e,n[o])||!S(t[n[o]],e[n[o]]))return!1;return!0}var E=n(100),C=n(319),x="object"==typeof self&&self&&self.Object===Object&&self,T=(C.a||x||Function("return this")()).Symbol,N=Object.prototype;N.hasOwnProperty,N.toString,T&&T.toStringTag;Object.prototype.toString;T&&T.toStringTag;Object.getPrototypeOf,Object;var R=Function.prototype,q=Object.prototype,I=R.toString;q.hasOwnProperty,I.call(Object);function M(t){return function(e,n){var r=t(e,n);function o(){return r}return o.dependsOnOwnProps=!1,o}}function D(t){return null!==t.dependsOnOwnProps&&void 0!==t.dependsOnOwnProps?Boolean(t.dependsOnOwnProps):1!==t.length}function U(t,e){return function(e,n){n.displayName;var r=function(t,e){return r.dependsOnOwnProps?r.mapToProps(t,e):r.mapToProps(t)};return r.dependsOnOwnProps=!0,r.mapToProps=function(e,n){r.mapToProps=t,r.dependsOnOwnProps=D(t);var o=r(e,n);return"function"==typeof o&&(r.mapToProps=o,r.dependsOnOwnProps=D(o),o=r(e,n)),o},r}}var A=[function(t){return"function"==typeof t?U(t):void 0},function(t){return t?void 0:M((function(t){return{dispatch:t}}))},function(t){return t&&"object"==typeof t?M((function(e){return Object(E.bindActionCreators)(t,e)})):void 0}];var _=[function(t){return"function"==typeof t?U(t):void 0},function(t){return t?void 0:M((function(){return{}}))}],k=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t};function W(t,e,n){return k({},n,t,e)}var F=[function(t){return"function"==typeof t?(function(t){return function(e,n){n.displayName;var r=n.pure,o=n.areMergedPropsEqual,i=!1,s=void 0;return function(e,n,u){var a=t(e,n,u);return i?r&&o(a,s)||(s=a):(i=!0,s=a),s}}})(t):void 0},function(t){return t?void 0:function(){return W}}];function B(t,e,n,r){return function(o,i){return n(t(o,i),e(r,i),i)}}function H(t,e,n,r,o){var i=o.areStatesEqual,s=o.areOwnPropsEqual,u=o.areStatePropsEqual,a=!1,c=void 0,p=void 0,f=void 0,d=void 0,l=void 0;function h(o,a){var h,y,b=!s(a,p),v=!i(o,c);return c=o,p=a,b&&v?(f=t(c,p),e.dependsOnOwnProps&&(d=e(r,p)),l=n(f,d,p)):b?(t.dependsOnOwnProps&&(f=t(c,p)),e.dependsOnOwnProps&&(d=e(r,p)),l=n(f,d,p)):v?(h=t(c,p),y=!u(h,f),f=h,y&&(l=n(f,d,p)),l):l}return function(o,i){return a?h(o,i):(f=t(c=o,p=i),d=e(r,p),l=n(f,d,p),a=!0,l)}}function K(t,e){var n=e.initMapStateToProps,r=e.initMapDispatchToProps,o=e.initMergeProps,i=(function(t,e){var n={};for(var r in t)e.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(t,r)&&(n[r]=t[r]);return n})(e,["initMapStateToProps","initMapDispatchToProps","initMergeProps"]),s=n(t,i),u=r(t,i),a=o(t,i);return(i.pure?H:B)(s,u,a,t,i)}var Y=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t[r]=n[r])}return t};function J(t,e,n){for(var r=e.length-1;r>=0;r--){var o=e[r](t);if(o)return o}return function(e,r){throw new Error("Invalid value of type "+typeof t+" for "+n+" argument when connecting component "+r.wrappedComponentName+".")}}function L(t,e){return t===e}var z=(function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=t.connectHOC,n=void 0===e?g:e,r=t.mapStateToPropsFactories,o=void 0===r?_:r,i=t.mapDispatchToPropsFactories,s=void 0===i?A:i,u=t.mergePropsFactories,a=void 0===u?F:u,c=t.selectorFactory,p=void 0===c?K:c;return function(t,e,r){var i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:{},u=i.pure,c=void 0===u||u,f=i.areStatesEqual,d=void 0===f?L:f,l=i.areOwnPropsEqual,h=void 0===l?j:l,y=i.areStatePropsEqual,b=void 0===y?j:y,v=i.areMergedPropsEqual,m=void 0===v?j:v,w=(function(t,e){var n={};for(var r in t)e.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(t,r)&&(n[r]=t[r]);return n})(i,["pure","areStatesEqual","areOwnPropsEqual","areStatePropsEqual","areMergedPropsEqual"]),O=J(t,o,"mapStateToProps"),g=J(e,s,"mapDispatchToProps"),P=J(r,a,"mergeProps");return n(p,Y({methodName:"connect",getDisplayName:function(t){return"Connect("+t+")"},shouldHandleStateChanges:Boolean(t),initMapStateToProps:O,initMapDispatchToProps:g,initMergeProps:P,pure:c,areStatesEqual:d,areOwnPropsEqual:h,areStatePropsEqual:b,areMergedPropsEqual:m},w))}})();n.d(e,"Provider",(function(){return c})),n.d(e,"createProvider",(function(){return a})),n.d(e,"connectAdvanced",(function(){return g})),n.d(e,"connect",(function(){return z}))}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
+
+/***/ "./src/plugins/Tool/Tool.jsx":
+/*!***********************************!*\
+  !*** ./src/plugins/Tool/Tool.jsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/plugins/Tool/styles.scss"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tool =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Tool, _Component);
+
+  function Tool(props) {
+    var _this;
+
+    _classCallCheck(this, Tool);
+
+    _this = _possibleConstructorReturn(this, (Tool.__proto__ || Object.getPrototypeOf(Tool)).call(this, props));
+    var ltiBaseUrl = document.getElementById("root").dataset.ltiBaseUrl;
+    _this.refFrame = _react.default.createRef();
+    _this.state = {
+      tool: _this.props.initialState ? _this.props.initialState.tool : {},
+      ltiBaseUrl: ltiBaseUrl
+    };
+    return _this;
+  }
+
+  _createClass(Tool, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState(_objectSpread({}, this.props.content));
+      this.props.saveContent({
+        tool: this.state.tool
+      });
+    }
+  }, {
+    key: "enterFullscreen",
+    value: function enterFullscreen() {
+      var elem = this.refFrame.current;
+
+      if (elem.requestFullScreen) {
+        elem.requestFullScreen();
+      } else if (elem.webkitRequestFullScreen) {
+        elem.webkitRequestFullScreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _state = this.state,
+          tool = _state.tool,
+          ltiBaseUrl = _state.ltiBaseUrl;
+      var isEditable = this.props.isEditable;
+      var src = null;
+
+      if (tool.ltiId && ltiBaseUrl) {
+        src = ltiBaseUrl + tool.ltiId;
+      } else if (tool.url) {
+        src = tool.url;
+      }
+
+      return src ? _react.default.createElement("div", null, _react.default.createElement("button", {
+        className: _styles.default.fullscreenButton,
+        onClick: function onClick(e) {
+          return _this2.enterFullscreen();
+        }
+      }, "Vollbild"), _react.default.createElement("iframe", {
+        className: _styles.default.frame,
+        src: src,
+        ref: this.refFrame
+      })) : _react.default.createElement("p", null, "Das Tool kann eventuell nur in der Schul-Cloud angezeigt werden.");
+    }
+  }]);
+
+  return Tool;
+}(_react.Component);
+
+exports.default = Tool;
+Object.defineProperty(Tool, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    isEditable: _propTypes.default.bool.isRequired,
+    content: _propTypes.default.object,
+    saveContent: _propTypes.default.func.isRequired,
+    initialState: _propTypes.default.object
+  }
+});
+
+/***/ }),
+
+/***/ "./src/plugins/Tool/styles.scss":
+/*!**************************************!*\
+  !*** ./src/plugins/Tool/styles.scss ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"frame":"_2SAoUUpOEM3rfSghR6IWyN","fullscreenButton":"_1l7MJr1zp4OFDhB1r8GjIX"};
+
+/***/ })
+
+}]);
+//# sourceMappingURL=6.js.map

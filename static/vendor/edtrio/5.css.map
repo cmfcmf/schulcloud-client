@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./src/plugins/GeoGebra/styles.scss"],"names":[],"mappings":"AAAA,yBAAyB,gBAAgB,W","file":"5.css","sourcesContent":["._2cuNNliiMFcn2xrEoCyGHc{margin-top:16px;width:100%}"],"sourceRoot":""}
+{"version":3,"file":"5.css","sources":["webpack:///./src/plugins/Text/styles.scss"],"sourcesContent":["div._2iZ-_BpSmV-I7eH7Rs_5IX {\n  padding: 0;\n  margin-bottom: 5px; }\n"],"mappings":"AAAA;AACA;AACA;;","sourceRoot":""}

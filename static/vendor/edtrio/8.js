@@ -1,1 +1,176 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{326:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var r=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var r=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,n):{};r.get||r.set?Object.defineProperty(t,n,r):t[n]=e[n]}return t.default=e,t})(n(0)),o=c(n(1)),a=(c(n(30)),n(42)),l=n(440),i=c(n(156)),u=c(n(359));function c(e){return e&&e.__esModule?e:{default:e}}function f(e){return(f="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function s(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function p(e,t){return!t||"object"!==f(t)&&"function"!=typeof t?(function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e})(e):t}var d=(function(e){function t(e){var n;return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),(n=p(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e))).state={open:!0},n}var n,o,c;return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,r.PureComponent),n=t,(o=[{key:"handleOpen",value:function(){this.setState({open:!0})}},{key:"handleClose",value:function(){this.setState({open:!1})}},{key:"render",value:function(){var e=this,t=[],n=[],o=[];return r.default.createElement(r.default.Fragment,null,r.default.createElement(a.Modal,{open:this.state.open,onClose:function(){return e.handleClose()}},r.default.createElement(r.default.Fragment,null,i.default.allPlugins.map((function(l){var i=r.default.createElement("div",{key:l.name,className:u.default.item},r.default.createElement(a.MenuItem,{key:l.name,onClick:function(t){e.handleClose(),e.props.addPlugin(l)}},r.default.createElement(a.PluginPreview,{name:l.name,image:l.preview_image,description:l.description})));"CONTENT"===l.type?t.push(i):"INPUT"===l.type?o.push(i):n.push(i)})),r.default.createElement("div",{className:u.default.title},"Add element"),r.default.createElement("div",{className:u.default.title_block},"Content"),r.default.createElement("div",{className:u.default.container},t),r.default.createElement("div",{className:u.default.title_block},"Layout"),r.default.createElement("div",{className:u.default.container},n),r.default.createElement("div",{className:u.default.title_block},"Input"),r.default.createElement("div",{className:u.default.container},o))),r.default.createElement(l.Fab,{className:u.default.floating_button,onClick:function(){return e.handleOpen()}},"add"))}}])&&s(n.prototype,o),c&&s(n,c),t})();Object.defineProperty(d,"propTypes",{configurable:!0,enumerable:!0,writable:!0,value:{addPlugin:o.default.func.isRequired}}),Object.defineProperty(d,"displayName",{configurable:!0,enumerable:!0,writable:!0,value:"AddPlugin Button"});var b=d;t.default=b},359:function(e,t,n){e.exports={floating_button:"_2lokVvCck0vZ9lsODN_fZ0",item:"_3tmQ36YJUkWtlWvAmzElPv",container:"_1sOwgEPelunzfVaYaYSvr9",title:"_9h9bLJ5TmWp67_J5iOyaX",title_block:"_2jQM1IMyGrgT4q-GIz_-yf"}},440:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Fab=t.FabIcon=t.FabRoot=void 0;var r=(function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}})(),o=(function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t.default=e,t})(n(0)),a=f(n(1)),l=f(n(3)),i=n(16),u=n(19),c=n(13);function f(e){return e&&e.__esModule?e:{default:e}}var s=t.FabRoot=(0,c.withRipple)({surface:!1})((0,c.simpleTag)({displayName:"FabRoot",tag:"button",classNames:function(e){return["mdc-fab",{"mdc-fab--mini":e.mini,"mdc-fab--exited":e.exited}]},defaultProps:{cssOnly:!1,mini:!1},consumeProps:["mini","cssOnly","exited"]})),p=t.FabIcon=(0,c.simpleTag)({displayName:"FabIcon",tag:i.Icon,classNames:"mdc-fab__icon"}),d=t.Fab=(function(e){function t(){return (function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")})(this,t),(function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t})(this,(t.__proto__||Object.getPrototypeOf(t)).apply(this,arguments))}return (function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)})(t,o.Component),r(t,[{key:"componentWillMount",value:function(){this.providerOptions=(0,u.getProviderOptions)(this.context)}},{key:"render",value:function(){var e=this.providerOptions.buttonDefaultRipple,t=this.props,n=t.ripple,r=t.className,a=t.children,i=(function(e,t){var n={};for(var r in e)t.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(e,r)&&(n[r]=e[r]);return n})(t,["ripple","className","children"]),u=void 0===n?e:n,c=(0,l.default)(this.providerOptions.iconClassNamePrefix,r);return o.createElement(s,Object.assign({className:c,ripple:u},i),o.createElement(p,null,a))}}]),t})();Object.defineProperty(d,"defaultProps",{enumerable:!0,writable:!0,value:{mini:void 0,exited:void 0,cssOnly:void 0}}),Object.defineProperty(d,"contextTypes",{enumerable:!0,writable:!0,value:{RMWCOptions:a.default.object}}),t.default=d}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
+
+/***/ "./src/plugins/Video/VideoPlugin.jsx":
+/*!*******************************************!*\
+  !*** ./src/plugins/Video/VideoPlugin.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash.isequal */ "./node_modules/lodash.isequal/index.js"));
+
+var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/plugins/Video/styles.scss"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var parseUrlRegex = /(http:|https:|)\/\/(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(&\S+)?/;
+
+var VideoPlugin =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(VideoPlugin, _Component);
+
+  function VideoPlugin(props) {
+    var _this;
+
+    _classCallCheck(this, VideoPlugin);
+
+    _this = _possibleConstructorReturn(this, (VideoPlugin.__proto__ || Object.getPrototypeOf(VideoPlugin)).call(this, props));
+    _this.state = {
+      embedURL: ""
+    };
+    return _this;
+  }
+
+  _createClass(VideoPlugin, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState(_objectSpread({}, this.props.content));
+    }
+  }, {
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(_ref, nextState) {
+      var isEditable = _ref.isEditable,
+          isViewMode = _ref.isViewMode;
+      return (isEditable || isViewMode) && !(0, _lodash.default)(this.state, nextState);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          isEditable = _props.isEditable,
+          isViewMode = _props.isViewMode,
+          saveContent = _props.saveContent;
+      var embedURL = this.state.embedURL;
+      return _react.default.createElement("div", {
+        className: _styles.default.video_wrapper
+      }, embedURL && _react.default.createElement("div", {
+        className: _styles.default.iframe_wrapper
+      }, _react.default.createElement("iframe", {
+        src: embedURL,
+        frameBorder: "0",
+        allowFullScreen: true
+      })), !isViewMode && _react.default.createElement("input", {
+        className: _styles.default.video_input,
+        autoFocus: true,
+        type: "url",
+        name: "url",
+        value: embedURL,
+        onInput: function onInput(e) {
+          return _this2.handleChange(e);
+        },
+        disabled: !isEditable,
+        placeholder: "Youtube oder Vimeo URL eingeben"
+      }));
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _this3 = this;
+
+      var _parseUrlRegex$exec = parseUrlRegex.exec(e.target.value),
+          _parseUrlRegex$exec2 = _slicedToArray(_parseUrlRegex$exec, 7),
+          platform = _parseUrlRegex$exec2[3],
+          id = _parseUrlRegex$exec2[6];
+
+      var embedPrefix = "";
+
+      if (platform.indexOf("youtu") > -1) {
+        embedPrefix = "https://www.youtube.com/embed/";
+      } else if (platform.indexOf("vimeo") > -1) {
+        embedPrefix = "https://player.vimeo.com/video/";
+      }
+
+      this.setState({
+        embedURL: embedPrefix + id
+      }, function () {
+        return _this3.props.saveContent(_this3.state);
+      });
+    }
+  }]);
+
+  return VideoPlugin;
+}(_react.Component);
+
+Object.defineProperty(VideoPlugin, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    isEditable: _propTypes.default.bool,
+    isViewMode: _propTypes.default.bool.isRequired,
+    content: _propTypes.default.object,
+    saveContent: _propTypes.default.func
+  }
+});
+var _default = VideoPlugin;
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./src/plugins/Video/styles.scss":
+/*!***************************************!*\
+  !*** ./src/plugins/Video/styles.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"video_wrapper":"_1ehvhhAerLvNcfEZ7v6B6","iframe_wrapper":"_2x4AFp9FnJADIS6GlFYqAk","video_input":"_1fVYQOt45kPAhJd9UnUxsF"};
+
+/***/ })
+
+}]);
+//# sourceMappingURL=8.js.map
