@@ -35356,7 +35356,7 @@ function (_Component) {
 }(_react.Component);
 
 PluginPreview.propTypes = {
-  name: _propTypes.default.string,
+  name: _propTypes.default.string.isRequired,
   displayName: _propTypes.default.string,
   description: _propTypes.default.string,
   image: _propTypes.default.any.isRequired
@@ -36234,8 +36234,6 @@ function (_Component) {
       var _this2 = this;
 
       _api.default.getData().then(function (data) {
-        console.log(data);
-
         _this2.setState({
           data: data
         });
@@ -36412,9 +36410,10 @@ function (_Component) {
     _classCallCheck(this, PluginWrapper);
 
     _this = _possibleConstructorReturn(this, (PluginWrapper.__proto__ || Object.getPrototypeOf(PluginWrapper)).call(this, props));
+    console.log(_this.props.data);
     _this.state = {
       viewTree: [],
-      data: _this.props.data || exampleData
+      data: _this.props.data.plugin ? _this.props.data.plugin : exampleData
     };
     var data = _this.state.data;
     Object.keys(data.plugin.lookup).forEach(function (el, i) {
@@ -36466,7 +36465,7 @@ Object.defineProperty(PluginWrapper, "propTypes", {
   enumerable: true,
   writable: true,
   value: {
-    data: _propTypes.default.object
+    data: _propTypes.default.object.isRequired
   }
 });
 var _default = PluginWrapper;

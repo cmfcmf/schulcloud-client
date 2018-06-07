@@ -50059,7 +50059,7 @@ function (_Component) {
 }(_react.Component);
 
 PluginPreview.propTypes = {
-  name: _propTypes.default.string,
+  name: _propTypes.default.string.isRequired,
   displayName: _propTypes.default.string,
   description: _propTypes.default.string,
   image: _propTypes.default.any.isRequired
