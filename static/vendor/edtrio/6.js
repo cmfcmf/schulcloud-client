@@ -109,7 +109,7 @@ function (_Component) {
           tool = _state.tool,
           ltiBaseUrl = _state.ltiBaseUrl;
       var _props = this.props,
-          isEditable = _props.isEditable,
+          isViewMode = _props.isViewMode,
           id = _props.id;
       var src = null;
 
@@ -119,11 +119,12 @@ function (_Component) {
         src = tool.url;
       }
 
-      if (isEditable) {
-        src += "".concat(src.indexOf('?') === -1 ? '?' : '&', "edit=1");
+      if (src) {
+        console.log(isViewMode);
+        src += "".concat(src.indexOf('?') === -1 ? '?' : '&', "edit=").concat(isViewMode ? '0' : '1');
+        console.log(src);
       }
 
-      console.log(src);
       return src ? _react.default.createElement("div", null, _react.default.createElement("button", {
         className: _styles.default.fullscreenButton,
         onClick: function onClick(e) {
@@ -147,7 +148,7 @@ Object.defineProperty(Tool, "propTypes", {
   enumerable: true,
   writable: true,
   value: {
-    isEditable: _propTypes.default.bool.isRequired,
+    isViewMode: _propTypes.default.bool.isRequired,
     content: _propTypes.default.object,
     saveContent: _propTypes.default.func.isRequired,
     initialState: _propTypes.default.object,
