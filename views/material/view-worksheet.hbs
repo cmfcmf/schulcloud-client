@@ -1,9 +1,9 @@
 {{#extend "lib/loggedin"}}
 
     {{#content "styles" mode="append"}}
-        <link rel="stylesheet" href="/vendor/edtrio/17.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <link rel="stylesheet" href="/vendor/edtrio/viewer.css">
+        <link rel="stylesheet" href="/vendor/edtrio/material-components-web.min.css">
     {{/content}}
 
 
@@ -18,7 +18,9 @@
             <div id="root"
                  data-api="{{worksheet_api}}"
                  data-worksheet-id="{{worksheet_id}}"
-                 data-lti-base-url="{{lti_base_url}}">
+                 data-lti-base-url="{{lti_base_url}}"
+                 data-lrs-api="{{lrs_api}}"
+                 data-user-id="{{user_id}}">
             </div>
 
             <div id="modal"></div>

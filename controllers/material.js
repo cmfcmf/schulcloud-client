@@ -31,21 +31,23 @@ const listWorksheets = function(req, res, next) {
 
 const worksheetApi = `../api`;
 const ltiBaseUrl = '../../courses/X/tools/run/';
+const lrsApi = '../lrs';
 
 const viewWorksheet = (req, res, next) => {
   res.render('material/view-worksheet', {
     title: 'Blatt anzeigen',
     worksheet_api: worksheetApi,
     worksheet_id: req.params.id,
-    lti_base_url: ltiBaseUrl
+    lti_base_url: ltiBaseUrl,
+    lrs_api: lrsApi,
+    user_id: res.locals.currentUser._id
   });
 };
 
 const createWorksheet = (req, res, next) => {
   api(req).post('/worksheet/', {
     json: {
-      title: 'Neues Arbeitsblatt ' + Date.now(),
-      content: []
+      title: 'Neues Arbeitsblatt ' + Date.now()
     }
   }).then(result => {
     res.redirect('/material/edit/' + result._id)
@@ -69,6 +71,12 @@ const loadWorksheet = (req, res, next) => {
 
 const saveWorksheet = (req, res, next) => {
   api(req).patch('/worksheet/' + req.params.id, { json: req.body }).then(result => {
+    res.send(result)
+  });
+}
+
+const postLrsStatements = (req, res, next) => {
+  api(req).post('/lrs', { json: req.body }).then(result => {
     res.send(result)
   });
 }
@@ -117,5 +125,6 @@ router.get('/edit/:id', editWorksheet);
 router.get('/api/:id', loadWorksheet);
 router.patch('/api/:id', saveWorksheet);
 router.get('/lti/:id', getLtiRequest);
+router.post('/lrs', postLrsStatements);
 
 module.exports = router;

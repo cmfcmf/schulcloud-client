@@ -85,7 +85,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      __webpack_require__.e(/*! import() */ 9).then(function() { var module = __webpack_require__(/*! ./gg.js */ "./src/plugins/GeoGebra/gg.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); }).then(function (GeoGebra) {
+      __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! ./gg.js */ "./src/plugins/GeoGebra/gg.js", 7)).then(function (GeoGebra) {
         _this3.setState(function (state) {
           return _objectSpread({}, state, {
             geogebra: GeoGebra.default

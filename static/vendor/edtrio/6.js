@@ -39,9 +39,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 var Tool =
 /*#__PURE__*/
@@ -56,6 +56,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (Tool.__proto__ || Object.getPrototypeOf(Tool)).call(this, props));
     var ltiBaseUrl = document.getElementById("root").dataset.ltiBaseUrl;
     _this.refFrame = _react.default.createRef();
+    _this.setDeeplink = _this.setDeeplink.bind(_assertThisInitialized(_this));
     _this.state = {
       tool: _this.props.initialState ? _this.props.initialState.tool : {},
       ltiBaseUrl: ltiBaseUrl
@@ -64,12 +65,27 @@ function (_Component) {
   }
 
   _createClass(Tool, [{
+    key: "setDeeplink",
+    value: function setDeeplink(event) {
+      if (event.data.url && this.props.id.toString() === event.data.windowName) {
+        this.setState({
+          tool: _objectSpread({}, this.state.tool, {
+            url: event.data.url
+          })
+        });
+        this.props.saveContent({
+          tool: this.state.tool
+        });
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.setState(_objectSpread({}, this.props.content));
       this.props.saveContent({
         tool: this.state.tool
       });
+      window.addEventListener("message", this.setDeeplink, false);
     }
   }, {
     key: "enterFullscreen",
@@ -92,7 +108,9 @@ function (_Component) {
       var _state = this.state,
           tool = _state.tool,
           ltiBaseUrl = _state.ltiBaseUrl;
-      var isEditable = this.props.isEditable;
+      var _props = this.props,
+          isEditable = _props.isEditable,
+          id = _props.id;
       var src = null;
 
       if (tool.ltiId && ltiBaseUrl) {
@@ -101,6 +119,11 @@ function (_Component) {
         src = tool.url;
       }
 
+      if (isEditable) {
+        src += "".concat(src.indexOf('?') === -1 ? '?' : '&', "edit=1");
+      }
+
+      console.log(src);
       return src ? _react.default.createElement("div", null, _react.default.createElement("button", {
         className: _styles.default.fullscreenButton,
         onClick: function onClick(e) {
@@ -108,6 +131,7 @@ function (_Component) {
         }
       }, "Vollbild"), _react.default.createElement("iframe", {
         className: _styles.default.frame,
+        name: id,
         src: src,
         ref: this.refFrame
       })) : _react.default.createElement("p", null, "Das Tool kann eventuell nur in der Schul-Cloud angezeigt werden.");
@@ -126,7 +150,8 @@ Object.defineProperty(Tool, "propTypes", {
     isEditable: _propTypes.default.bool.isRequired,
     content: _propTypes.default.object,
     saveContent: _propTypes.default.func.isRequired,
-    initialState: _propTypes.default.object
+    initialState: _propTypes.default.object,
+    id: _propTypes.default.number.isRequired
   }
 });
 

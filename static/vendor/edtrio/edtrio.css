@@ -200,17 +200,31 @@
 
 ._3DjO5xu3pAW9BHbc_79Sdc {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   padding: 2rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
 
-._2aqQj7rmcC1D6dWmdlmIsK {
+._20_vkm94fhfaY3OvGXRlz_ {
   position: fixed;
-  top: 0;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px;
+  bottom: 32px;
   left: 0;
   right: 0;
-  bottom: 0;
-  z-index: 0; }
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ddd; }
+  ._20_vkm94fhfaY3OvGXRlz_ > li {
+    list-style-type: none;
+    cursor: pointer; }
+
+._1qBGAoJWwIaks_FtA6s8qR {
+  font-weight: 900;
+  text-decoration: underline; }
 
 * {
   box-sizing: border-box; }

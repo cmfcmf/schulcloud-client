@@ -95,7 +95,7 @@ function (_Component) {
       var _this3 = this;
 
       var isEditable = this.props.isEditable;
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", null, "unstyled"), _react.default.createElement("h2", null, "Static dummy text plugin"), _react.default.createElement("div", null, "Editable: ".concat(isEditable)), _react.default.createElement("input", {
+      return _react.default.createElement("span", null, _react.default.createElement("div", null, "unstyled"), _react.default.createElement("h2", null, "Static dummy text plugin"), _react.default.createElement("div", null, "Editable: ".concat(isEditable)), _react.default.createElement("input", {
         autoFocus: true,
         type: "text",
         name: "lx",
