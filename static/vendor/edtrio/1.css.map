@@ -1,1 +1,1 @@
-{"version":3,"file":"1.css","sources":["webpack:///./src/plugins/GeoGebra/styles.scss"],"sourcesContent":["._2cuNNliiMFcn2xrEoCyGHc {\n  margin-top: 16px;\n  width: 100%; }\n"],"mappings":"AAAA;AACA;AACA;;","sourceRoot":""}
+{"version":3,"file":"1.css","sources":["webpack:///./src/plugins/GeoGebra/styles.scss"],"sourcesContent":["._2cuNNliiMFcn2xrEoCyGHc {\n  margin: 16px auto;\n  width: 100%; }\n"],"mappings":"AAAA;AACA;AACA;;","sourceRoot":""}

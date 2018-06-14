@@ -236,7 +236,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 26);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -35494,11 +35494,11 @@ var AppBar = function AppBar(_ref) {
     className: _styles.default.app_bar
   }, _react.default.createElement("div", {
     className: _styles.default.app_bar_content
-  }, _react.default.createElement("h2", null, title)));
+  }, title));
 };
 
 AppBar.propTypes = {
-  title: _propTypes.default.string.isRequired
+  title: _propTypes.default.any.isRequired
 };
 var _default = AppBar;
 exports.default = _default;
@@ -36714,16 +36714,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = [{
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(16), __webpack_require__.e(18), __webpack_require__.e(0)]).then(__webpack_require__.t.bind(null, /*! ./Dummy/DummyPlugin.jsx */ "./src/plugins/Dummy/DummyPlugin.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(15), __webpack_require__.e(17), __webpack_require__.e(0)]).then(__webpack_require__.t.bind(null, /*! ./Dummy/DummyPlugin.jsx */ "./src/plugins/Dummy/DummyPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "version": "0.1.0",
           "description": "Leeres Plugin zum Testen",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36738,10 +36738,10 @@ var _default = [{
           "description": "Geogebra Anzeige",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36756,10 +36756,10 @@ var _default = [{
           "description": "Bilder per URL einbinden",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36774,10 +36774,10 @@ var _default = [{
           "description": "Horizontale Linie zum Abtrennen von Inhalten",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36786,16 +36786,16 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(15), __webpack_require__.e(4)]).then(__webpack_require__.t.bind(null, /*! ./MultipleChoice/View/MultipleChoice.jsx */ "./src/plugins/MultipleChoice/View/MultipleChoice.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(14), __webpack_require__.e(4)]).then(__webpack_require__.t.bind(null, /*! ./MultipleChoice/View/MultipleChoice.jsx */ "./src/plugins/MultipleChoice/View/MultipleChoice.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "version": "0.1.0",
           "description": "Raten was das Zeug hält",
           "type": "INPUT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36804,16 +36804,16 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(17), __webpack_require__.e(5)]).then(__webpack_require__.t.bind(null, /*! ./Text/TextPlugin.jsx */ "./src/plugins/Text/TextPlugin.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(16), __webpack_require__.e(5)]).then(__webpack_require__.t.bind(null, /*! ./Text/TextPlugin.jsx */ "./src/plugins/Text/TextPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "version": "0.1.0",
           "description": "Schreiben was das Zeug hält",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36848,7 +36848,7 @@ var _default = [{
               }
             }
           }, {
-            "displayName": "Dummy App",
+            "displayName": "Example App",
             "type": "CONTENT",
             "options": {
               "initialState": {
@@ -36859,10 +36859,10 @@ var _default = [{
             }
           }]
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36881,10 +36881,10 @@ var _default = [{
             "allowChildRearrangement": false
           }
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -36893,16 +36893,16 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(16), __webpack_require__.e(8)]).then(__webpack_require__.t.bind(null, /*! ./Video/VideoPlugin.jsx */ "./src/plugins/Video/VideoPlugin.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(15), __webpack_require__.e(8)]).then(__webpack_require__.t.bind(null, /*! ./Video/VideoPlugin.jsx */ "./src/plugins/Video/VideoPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "version": "0.1.0",
           "description": "Videos von Youtube und Vimeo einbinden",
           "type": "CONTENT"
         });
-      }).catch(console.log);
+      });
     },
     loading: function loading() {
-      return _react.default.createElement("p", null, "L\xE4dted");
+      return _react.default.createElement("p", null, "L\xE4dt");
     }
   }),
   info: {
@@ -37336,7 +37336,7 @@ _reactDom.default.render(_react.default.createElement(_App.default, null), docum
 
 /***/ }),
 
-/***/ 25:
+/***/ 26:
 /*!*************************************************************************************!*\
   !*** multi (webpack)-dev-server/client?http://localhost:8080 ./src/viewer/index.js ***!
   \*************************************************************************************/

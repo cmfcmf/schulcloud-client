@@ -82,7 +82,7 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"1":1,"2":1,"3":1,"5":1,"6":1,"11":1,"12":1,"13":1,"14":1};
+/******/ 		var cssChunks = {"1":1,"2":1,"3":1,"5":1,"6":1,"10":1,"11":1,"12":1,"13":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
@@ -52736,11 +52736,11 @@ var AppBar = function AppBar(_ref) {
     className: _styles.default.app_bar
   }, _react.default.createElement("div", {
     className: _styles.default.app_bar_content
-  }, _react.default.createElement("h2", null, title)));
+  }, title));
 };
 
 AppBar.propTypes = {
-  title: _propTypes.default.string.isRequired
+  title: _propTypes.default.any.isRequired
 };
 var _default = AppBar;
 exports.default = _default;
@@ -53941,7 +53941,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.set_page = exports.SET_TITLE = exports.SET_PAGE = void 0;
+exports.set_title = exports.set_page = exports.SET_TITLE = exports.SET_PAGE = void 0;
 var SET_PAGE = "SET_PAGE";
 exports.SET_PAGE = SET_PAGE;
 var SET_TITLE = "SET_TITLE";
@@ -53955,6 +53955,15 @@ var set_page = function set_page(page) {
 };
 
 exports.set_page = set_page;
+
+var set_title = function set_title(title) {
+  return {
+    type: SET_TITLE,
+    title: title
+  };
+};
+
+exports.set_title = set_title;
 
 /***/ }),
 
@@ -54130,7 +54139,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /*eslint react/display-name:0*/
 var _default = (0, _reactLoadable.default)({
   loader: function loader() {
-    return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.t.bind(null, /*! ./AddPlugin.jsx */ "./src/editor/components/AddPlugin/AddPlugin.jsx", 7)).then(function (object) {
+    return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.t.bind(null, /*! ./AddPlugin.jsx */ "./src/editor/components/AddPlugin/AddPlugin.jsx", 7)).then(function (object) {
       return object.default;
     }).catch(function (err) {
       return console.log(err);
@@ -54181,6 +54190,8 @@ var _Plugin = _interopRequireDefault(__webpack_require__(/*! ./../../../models/P
 var _AddPlugin = _interopRequireDefault(__webpack_require__(/*! ./../AddPlugin */ "./src/editor/components/AddPlugin/index.js"));
 
 var _Editor = _interopRequireDefault(__webpack_require__(/*! edtrio/common/Components/PluginResolver/Editor */ "./src/common/Components/PluginResolver/Editor/index.js"));
+
+var _TopBar = _interopRequireDefault(__webpack_require__(/*! ./../TopBar */ "./src/editor/components/TopBar/index.js"));
 
 var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/editor/components/Editor/styles.scss"));
 
@@ -54284,7 +54295,7 @@ function (_Component) {
       var page = this.props.document.page;
       return _react.default.createElement("div", {
         ref: this.editor
-      }, _react.default.createElement(_reactPaginate.default, {
+      }, _react.default.createElement(_TopBar.default, null), _react.default.createElement(_reactPaginate.default, {
         previousLabel: "Zur\xFCck",
         nextLabel: "Weiter",
         pageRangeDisplayed: 3,
@@ -54727,6 +54738,160 @@ module.exports = {"plugin":"MrNO5MN5ScrHjGqiBFpJL","handle":"_2P9fc6x1RsuppnimW6
 
 /***/ }),
 
+/***/ "./src/editor/components/TopBar/index.js":
+/*!***********************************************!*\
+  !*** ./src/editor/components/TopBar/index.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _UI = __webpack_require__(/*! edtrio/UI */ "./src/UI/index.js");
+
+var _document = __webpack_require__(/*! ./../../actions/document */ "./src/editor/actions/document.js");
+
+var _styles = _interopRequireDefault(__webpack_require__(/*! ./styles.scss */ "./src/editor/components/TopBar/styles.scss"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TopBar =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(TopBar, _Component);
+
+  function TopBar(props) {
+    var _this;
+
+    _classCallCheck(this, TopBar);
+
+    _this = _possibleConstructorReturn(this, (TopBar.__proto__ || Object.getPrototypeOf(TopBar)).call(this, props));
+    _this.state = {
+      active: false
+    };
+    _this.titleInput = _react.default.createRef();
+    return _this;
+  }
+
+  _createClass(TopBar, [{
+    key: "setActive",
+    value: function setActive() {
+      var _this2 = this;
+
+      var active = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.setState(function () {
+        return {
+          active: active
+        };
+      }, function () {
+        if (active) _this2.titleInput.current.focus();
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var active = this.state.active;
+      return _react.default.createElement(_UI.AppBar, {
+        title: _react.default.createElement("div", {
+          onClick: function onClick(e) {
+            return _this3.setActive();
+          },
+          className: _styles.default.title
+        }, active ? _react.default.createElement("form", {
+          onSubmit: function onSubmit(e) {
+            e.preventDefault();
+
+            _this3.setActive(false);
+          }
+        }, _react.default.createElement("input", {
+          ref: this.titleInput,
+          type: "text",
+          onChange: this.props.changeTitle,
+          value: this.props.title,
+          onBlur: function onBlur(e) {
+            return _this3.setActive(false);
+          }
+        })) : _react.default.createElement("h2", null, this.props.title))
+      });
+    }
+  }]);
+
+  return TopBar;
+}(_react.Component);
+
+Object.defineProperty(TopBar, "propTypes", {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: {
+    title: _propTypes.default.string.isRequired,
+    changeTitle: _propTypes.default.func.isRequired
+  }
+});
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var document = _ref.document;
+  return {
+    title: document.title
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    changeTitle: function changeTitle(e) {
+      dispatch((0, _document.set_title)(e.target.value));
+    }
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TopBar);
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./src/editor/components/TopBar/styles.scss":
+/*!**************************************************!*\
+  !*** ./src/editor/components/TopBar/styles.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"title":"_3Xtowda2xb0qkv8mpAtVmx"};
+
+/***/ }),
+
 /***/ "./src/editor/index.js":
 /*!*****************************!*\
   !*** ./src/editor/index.js ***!
@@ -54762,7 +54927,7 @@ _reactDom.default.render(_react.default.createElement(_App.default, null), docum
 var _document = __webpack_require__(/*! ./../actions/document */ "./src/editor/actions/document.js");
 
 var default_document = {
-  title: "",
+  title: "Titel",
   page: {
     count: 1,
     active: 0
@@ -54783,6 +54948,14 @@ var doc = function doc() {
             count: count,
             active: action.page
           }
+        };
+      }
+
+    case _document.SET_TITLE:
+      {
+        return {
+          title: action.title,
+          page: state.page
         };
       }
 
@@ -55395,7 +55568,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = [{
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.t.bind(null, /*! ./Dummy/DummyPlugin.jsx */ "./src/plugins/Dummy/DummyPlugin.jsx", 7)).then(function (object) {
+      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! ./Dummy/DummyPlugin.jsx */ "./src/plugins/Dummy/DummyPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "name": "Dummy",
           "version": "0.1.0",
@@ -55487,7 +55660,7 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(15), __webpack_require__.e(11)]).then(__webpack_require__.t.bind(null, /*! ./MultipleChoice/Edit/MultipleChoice.jsx */ "./src/plugins/MultipleChoice/Edit/MultipleChoice.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(14), __webpack_require__.e(10)]).then(__webpack_require__.t.bind(null, /*! ./MultipleChoice/Edit/MultipleChoice.jsx */ "./src/plugins/MultipleChoice/Edit/MultipleChoice.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "name": "Multiple Choice",
           "version": "0.1.0",
@@ -55510,7 +55683,7 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return Promise.all(/*! import() */[__webpack_require__.e(17), __webpack_require__.e(5)]).then(__webpack_require__.t.bind(null, /*! ./Text/TextPlugin.jsx */ "./src/plugins/Text/TextPlugin.jsx", 7)).then(function (object) {
+      return Promise.all(/*! import() */[__webpack_require__.e(16), __webpack_require__.e(5)]).then(__webpack_require__.t.bind(null, /*! ./Text/TextPlugin.jsx */ "./src/plugins/Text/TextPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "name": "Text",
           "version": "0.1.0",
@@ -55560,7 +55733,7 @@ var _default = [{
               }
             }
           }, {
-            "displayName": "Dummy App",
+            "displayName": "Example App",
             "type": "CONTENT",
             "options": {
               "initialState": {
@@ -55603,7 +55776,7 @@ var _default = [{
         }
       }
     }, {
-      "displayName": "Dummy App",
+      "displayName": "Example App",
       "type": "CONTENT",
       "options": {
         "initialState": {
@@ -55618,7 +55791,7 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.t.bind(null, /*! ./TwoColLayout/Edit/LayoutPlugin.jsx */ "./src/plugins/TwoColLayout/Edit/LayoutPlugin.jsx", 7)).then(function (object) {
+      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.t.bind(null, /*! ./TwoColLayout/Edit/LayoutPlugin.jsx */ "./src/plugins/TwoColLayout/Edit/LayoutPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "name": "Zwei Spalten",
           "version": "0.1.0",
@@ -55649,7 +55822,7 @@ var _default = [{
 }, {
   Plugin: (0, _reactLoadable.default)({
     loader: function loader() {
-      return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.t.bind(null, /*! ./Video/VideoPlugin.jsx */ "./src/plugins/Video/VideoPlugin.jsx", 7)).then(function (object) {
+      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.t.bind(null, /*! ./Video/VideoPlugin.jsx */ "./src/plugins/Video/VideoPlugin.jsx", 7)).then(function (object) {
         return (0, _PluginWrapper.default)(object.default, {
           "name": "Video",
           "version": "0.1.0",

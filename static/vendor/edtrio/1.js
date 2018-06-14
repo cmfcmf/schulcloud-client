@@ -56,60 +56,60 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (Geogebra.__proto__ || Object.getPrototypeOf(Geogebra)).call(this, props));
     _this.state = {
-      id: "",
-      geogebra: null
+      id: ""
     };
     _this.applet = _react.default.createRef();
     return _this;
   }
 
   _createClass(Geogebra, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps, _ref) {
+      var id = _ref.id;
+      return id !== this.state.id;
+    }
+  }, {
     key: "renderApplet",
     value: function renderApplet(id) {
       var _this2 = this;
 
-      this.setState(function (state) {
-        var app = new _this2.state.geogebra({
-          material_id: id,
-          width: _this2.applet.current.offsetWidth,
-          height: 500
-        }, true);
-        app.inject("ggb-element");
-        return _objectSpread({}, state, {
+      this.setState(function () {
+        return {
           id: id
-        });
+        };
+      }, function () {
+        return _this2.props.saveContent(_this2.state);
       });
+    }
+  }, {
+    key: "renderHTML",
+    value: function renderHTML() {
+      return "<!DOCTYPE>\n        <html>\n        <head>\n            <meta name=viewport content=\"width=device-width,initial-scale=1\">\n            <script src=\"https://cdn.geogebra.org/apps/deployggb.js\"></script>\n        </head>\n        <body>\n            <div id=\"ggb-element\"></div> \n\n            <script>\n                var ggbApp = new GGBApplet({\"appName\": \"graphing\", \"material_id\": \"".concat(this.state.id, "\"}, true);\n                window.addEventListener(\"load\", function() { \n                    ggbApp.inject('ggb-element');\n                });\n            </script>\n        </body>\n        </html>\n        ");
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
-
-      __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! ./gg.js */ "./src/plugins/GeoGebra/gg.js", 7)).then(function (GeoGebra) {
-        _this3.setState(function (state) {
-          return _objectSpread({}, state, {
-            geogebra: GeoGebra.default
-          });
-        });
-      });
+      this.setState(_objectSpread({}, this.props.content));
     }
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
-      var id = this.state.id;
-      return _react.default.createElement("span", null, _react.default.createElement("div", {
-        id: "ggb-element",
+      return _react.default.createElement("div", {
         ref: this.applet
-      }), _react.default.createElement("div", null, _react.default.createElement("input", {
+      }, _react.default.createElement("input", {
         className: _styles.default.id_input,
         onInput: function onInput(e) {
-          return _this4.renderApplet(e.target.value);
+          return _this3.renderApplet(e.target.value);
         },
         type: "text",
-        placeholder: "GeoGebra Id"
-      })));
+        placeholder: this.state.id || "GeoGebra Id"
+      }), this.state.id && _react.default.createElement("iframe", {
+        height: "500px",
+        width: "100%",
+        srcDoc: this.renderHTML()
+      }));
     }
   }]);
 

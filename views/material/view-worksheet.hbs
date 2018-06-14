@@ -14,7 +14,12 @@
 
     {{#content "page"}}
         <section class="section-course">
-
+            <div class="col-xs-12">
+                <div class="row padding-top">
+                    <a href="/material/edit/{{worksheet_id}}" class="btn btn-add btn-primary">Bearbeiten</a>&nbsp;
+                    <a href="/material/" class="btn btn-secondary">Zur Übersicht</a>
+                </div>
+            </div>
             <div id="root"
                  data-api="{{worksheet_api}}"
                  data-worksheet-id="{{worksheet_id}}"

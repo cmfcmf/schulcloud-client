@@ -109,7 +109,7 @@ function (_Component) {
           tool = _state.tool,
           ltiBaseUrl = _state.ltiBaseUrl;
       var _props = this.props,
-          isViewMode = _props.isViewMode,
+          isEditable = _props.isEditable,
           id = _props.id;
       var src = null;
 
@@ -117,12 +117,6 @@ function (_Component) {
         src = ltiBaseUrl + tool.ltiId;
       } else if (tool.url) {
         src = tool.url;
-      }
-
-      if (src) {
-        console.log(isViewMode);
-        src += "".concat(src.indexOf('?') === -1 ? '?' : '&', "edit=").concat(isViewMode ? '0' : '1');
-        console.log(src);
       }
 
       return src ? _react.default.createElement("div", null, _react.default.createElement("button", {
@@ -148,7 +142,7 @@ Object.defineProperty(Tool, "propTypes", {
   enumerable: true,
   writable: true,
   value: {
-    isViewMode: _propTypes.default.bool.isRequired,
+    isEditable: _propTypes.default.bool.isRequired,
     content: _propTypes.default.object,
     saveContent: _propTypes.default.func.isRequired,
     initialState: _propTypes.default.object,

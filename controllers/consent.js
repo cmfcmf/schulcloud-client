@@ -27,15 +27,16 @@ router.get('/consent', auth.authChecker, (r, w) => {
   }
 
   return api(r).get('/oauth2proxy/consentRequest/' + r.query.consent).then(consentRequest => {
-    return w.render('consent/consent', {
-      inline: true,
-      title: 'Login mit Schul-Cloud',
-      subtitle: '',
-      client: consentRequest.clientId,
-      action: `/consent/consent?consent=${r.query.consent}`,
-      buttonLabel: 'Akzeptieren',
-      scopes: consentRequest.requestedScopes
-    })
+    resolveConsent(r, w, r.query.consent, consentRequest.requestedScopes, consentRequest.clientId)
+    // return w.render('consent/consent', {
+    //   inline: true,
+    //   title: 'Login mit Schul-Cloud',
+    //   subtitle: '',
+    //   client: consentRequest.clientId,
+    //   action: `/consent/consent?consent=${r.query.consent}`,
+    //   buttonLabel: 'Akzeptieren',
+    //   scopes: consentRequest.requestedScopes
+    // })
   })
 })
 

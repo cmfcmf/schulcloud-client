@@ -22,7 +22,7 @@ const listWorksheets = function(req, res, next) {
       });
 
       res.render('material/overview', {
-        title: 'Meine Arbeitsblätter',
+        title: 'Meine Materialien',
         worksheets
       });
     }
