@@ -71,19 +71,22 @@ const getTableActionsSend = (item, path, state) => {
             {
                 link: path + item._id,
                 class: 'btn-edit',
-                icon: 'edit'
+                icon: 'edit',
+                title: 'Eintrag bearbeiten'
             },
             {
                 link: path + item._id,
                 class: 'btn-disable',
                 icon: 'ban',
-                method: 'delete'
+                method: 'delete',
+                title: 'Eintrag löschen'
             },
             {
                 link: path + item._id,
                 class: 'btn',
                 icon: 'paper-plane',
-                method: 'post'
+                method: 'post',
+                title: 'Zum Schul-Cloud Team senden'
             });
     }
     return actions;
